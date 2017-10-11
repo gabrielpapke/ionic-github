@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{user.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button [navPush]="HomePage">Home</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="user.avatar_url">
+    <img [src]="user.avatar_url"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{user.name}}
+        </ion-card-title>
+      <p>
+        {{user.bio}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
