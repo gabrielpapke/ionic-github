@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FormsModule, FormBuilder, FormControl } from "@angular/forms";
 import { UserPage } from "../user/user";
 
 
@@ -11,7 +10,7 @@ import { UserPage } from "../user/user";
 })
 export class HomePage {
   public userPage = UserPage;
-  public username;
+  public username = 'gabrielpapke';
   constructor(public navCtrl: NavController) {
   }
 

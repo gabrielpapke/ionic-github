@@ -1,9 +1,6 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{user.name}}</ion-title>
-    <ion-buttons end>
-      <button ion-button [navPush]="HomePage">Home</button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -13,10 +10,29 @@
     <ion-card-content>
       <ion-card-title>
         {{user.name}}
+        <div class="text-light">
+          <small>gabrielpapke@gmail.com</small>
+          <!-- {{user.email}} -->
+        </div>
         </ion-card-title>
       <p>
         {{user.bio}}
       </p>
+      <ion-item>
+          <ion-icon name='logo-github' item-start></ion-icon>
+          Followers
+          <ion-badge item-end>{{user.followers}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-icon name='logo-github' item-start></ion-icon>
+          Following
+          <ion-badge item-end>{{user.following}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <button ion-button icon-right item-end (click)="showRepositories()">
+            VER REPOSITÓRIOS <ion-icon name="arrow-dropright"></ion-icon>
+          </button>
+      </ion-item>
     </ion-card-content>
   </ion-card>
   
