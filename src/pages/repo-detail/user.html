@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{user.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="user.avatar_url">
+    <img [src]="user.avatar_url"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{user.name}}
+        <div class="text-light">
+          <small>gabrielpapke@gmail.com</small>
+          <!-- {{user.email}} -->
+        </div>
+        </ion-card-title>
+      <p>
+        {{user.bio}}
+      </p>
+      <ion-item>
+          <ion-icon name='logo-github' item-start></ion-icon>
+          Followers
+          <ion-badge item-end>{{user.followers}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-icon name='logo-github' item-start></ion-icon>
+          Following
+          <ion-badge item-end>{{user.following}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <button ion-button icon-right item-end (click)="showRepositories()">
+            VER REPOSITÓRIOS <ion-icon name="arrow-dropright"></ion-icon>
+          </button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

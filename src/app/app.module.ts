@@ -6,12 +6,14 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ReposPage } from '../pages/repos/repos';
 import { UserPage } from '../pages/user/user';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { UtilsService } from "../utils/utils.service";
 import { UsersService } from "./users/users.service";
 // import { ReposService } from "../pages/repos/shared/repo.service";
 
@@ -27,8 +29,9 @@ import "rxjs/add/Observable/of";import 'rxjs/add/Observable/throw';
 @NgModule({
   declarations: [
     MyApp,
-    UserPage,
-    HomePage
+    HomePage,
+    ReposPage,
+    UserPage
   ],
   imports: [
     BrowserModule,
@@ -39,11 +42,13 @@ import "rxjs/add/Observable/of";import 'rxjs/add/Observable/throw';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    UserPage,
-    HomePage
+    HomePage,
+    ReposPage,
+    UserPage
   ],
   providers: [
     UsersService,
+    UtilsService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler, }

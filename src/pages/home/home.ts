@@ -10,8 +10,11 @@ import { UserPage } from "../user/user";
 })
 export class HomePage {
   public userPage = UserPage;
-  public username = 'gabrielpapke';
+  public username = 'zenorocha';
   constructor(public navCtrl: NavController) {
+    //Apagar
+    this.search();
+    //--apagar
   }
 
   public search() {
