@@ -1,27 +1,33 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>{{user.name}}</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>{{user.name}}</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-item>
-        <ion-avatar item-start>
-          <img [src]="user.avatar_url">
-        </ion-avatar>
-        <h2>{{user.name}}</h2>
-        <button color="dark" ion-button item-end>
-          <ion-icon name="ios-arrow-round-down"></ion-icon>
-        </button>
-      </ion-item>
-  <ion-list>
-    <button ion-item icon-right *ngFor="let repo of repos" (click)="openRepo(repo)">
-      {{ repo.name }}
-      <span item-end>
-        {{repo.stargazers_count}}
-        <ion-icon item-end name="star"></ion-icon>
-      </span>
-    </button>
-  </ion-list>
-  
+	<ion-item>
+		<ion-avatar item-start>
+			<img [src]="user.avatar_url">
+		</ion-avatar>
+		<h2>{{user.name}}</h2>
+		<button color="dark" ion-button item-end>
+			<ion-icon name="ios-arrow-round-down"></ion-icon>
+		</button>
+	</ion-item>
+	<ion-list>
+		<button ion-item icon-right *ngFor="let repo of repos" (click)="openRepo(repo)">
+			{{ repo.name }}
+			<span item-end>
+				{{repo.stargazers_count}}
+				<ion-icon item-end name="star"></ion-icon>
+			</span>
+		</button>
+	</ion-list>
+	<ion-infinite-scroll #infinite (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content
+			loadingSpinner="bubbles"
+			loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
 </ion-content>

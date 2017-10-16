@@ -14,7 +14,6 @@ import { UserPage } from '../pages/user/user';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-// import { UtilsService } from "../utils/utils.service";
 import { UsersService } from "./users/users.service";
 import { ReposService } from "./repos/repos.service";
 

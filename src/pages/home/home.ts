@@ -9,11 +9,11 @@ import { UserPage } from "../user/user";
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public userPage = UserPage;
-  public username = 'zenorocha';
+  
+  public username; 
   constructor(public navCtrl: NavController) {
     //Apagar
-    this.search();
+    // this.search();
     //--apagar
   }
 
