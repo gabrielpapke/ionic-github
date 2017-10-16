@@ -2,6 +2,7 @@ import { Component, ViewChild} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlertController, Content, LoadingController } from 'ionic-angular';
 
+import { RepoDetailPage } from "../repo-detail/repo-detail";
 
 import { User } from "../../app/users/users.model";
 import { UsersService } from "../../app/users/users.service";
@@ -92,5 +93,12 @@ export class ReposPage {
 			}
 						
 		});
+	}
+
+	public openRepo (repo) {
+		this.navCtrl.push(RepoDetailPage, {
+			user: this.user,
+			repo: repo
+		})
 	}
 }

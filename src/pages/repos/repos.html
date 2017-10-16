@@ -15,13 +15,13 @@
         </button>
       </ion-item>
   <ion-list>
-    <ion-item ion-item icon-right *ngFor="let repo of repos">
+    <button ion-item icon-right *ngFor="let repo of repos" (click)="openRepo(repo)">
       {{ repo.name }}
       <span item-end>
         {{repo.stargazers_count}}
         <ion-icon item-end name="star"></ion-icon>
       </span>
-    </ion-item>
+    </button>
   </ion-list>
   
 </ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{repo.name}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card>
+		<ion-item *ngIf="user">
+			<ion-avatar item-start>
+				<img [src]="user.avatar_url">
+			</ion-avatar>
+			<h2>{{user.name}}</h2>
+		</ion-item>
+	</ion-card>
+	<ion-card-content>
+		<h2>{{repo.name}}</h2>
+		<p color="light">{{repo.description}}</p>
+		<ion-row>
+			<ion-col col-4 text-center>
+				<button ion-button block icon-left small>
+					<ion-icon name="star"></ion-icon>
+					{{repo.stargazers_count}}
+				</button>
+			</ion-col>
+			<ion-col col-4 *ngIf="repo.language" text-center>
+				<button ion-button block small>
+					{{repo.language}}
+				</button>
+			</ion-col>
+			<ion-col col-4 text-center>
+				<a [href]="repo.html_url" target="_blank" ion-button icon-left block small>
+					<ion-icon name="ios-link"></ion-icon>
+					Github
+				</a>
+			</ion-col>
+		</ion-row>
+	</ion-card-content>
+	
+</ion-content>

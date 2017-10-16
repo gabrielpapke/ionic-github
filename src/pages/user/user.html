@@ -10,14 +10,11 @@
     <ion-card-content>
       <ion-card-title>
         {{user.name}}
-        <div class="text-light">
-          <small>gabrielpapke@gmail.com</small>
-          <!-- {{user.email}} -->
+        <div class="text-light" *ngIf="user.email">
+          <small>{{ user.email }}</small>
         </div>
         </ion-card-title>
-      <p>
-        {{user.bio}}
-      </p>
+      <p *ngIf="user.bio">{{user.bio}}</p>
       <ion-item>
           <ion-icon name='logo-github' item-start></ion-icon>
           Followers

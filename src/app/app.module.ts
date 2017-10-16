@@ -7,15 +7,16 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ReposPage } from '../pages/repos/repos';
+import { RepoDetailPage } from '../pages/repo-detail/repo-detail';
 import { UserPage } from '../pages/user/user';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { UtilsService } from "../utils/utils.service";
+// import { UtilsService } from "../utils/utils.service";
 import { UsersService } from "./users/users.service";
-// import { ReposService } from "../pages/repos/shared/repo.service";
+import { ReposService } from "./repos/repos.service";
 
 // rxjs operator
 import 'rxjs/add/operator/catch';
@@ -31,6 +32,7 @@ import "rxjs/add/Observable/of";import 'rxjs/add/Observable/throw';
     MyApp,
     HomePage,
     ReposPage,
+    RepoDetailPage,
     UserPage
   ],
   imports: [
@@ -44,11 +46,12 @@ import "rxjs/add/Observable/of";import 'rxjs/add/Observable/throw';
     MyApp,
     HomePage,
     ReposPage,
+    RepoDetailPage,
     UserPage
   ],
   providers: [
     UsersService,
-    UtilsService,
+    ReposService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler, }
