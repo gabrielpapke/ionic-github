@@ -10,8 +10,9 @@
 			<img [src]="user.avatar_url">
 		</ion-avatar>
 		<h2>{{user.name}}</h2>
-		<button color="dark" ion-button item-end>
-			<ion-icon name="ios-arrow-round-down"></ion-icon>
+		
+		<button id="changeDirection" color="dark" ion-button item-end (click)="changeDirection()">
+			<ion-icon name="ios-arrow-round-{{params.direction == 'asc' ? 'down' : 'up'}}"></ion-icon>
 		</button>
 	</ion-item>
 	<ion-list>
@@ -26,7 +27,7 @@
 	<ion-infinite-scroll #infinite (ionInfinite)="doInfinite($event)">
 		<ion-infinite-scroll-content
 			loadingSpinner="bubbles"
-			loadingText="Loading more data...">
+			loadingText="Carregando mais repositórios...">
 		</ion-infinite-scroll-content>
 	</ion-infinite-scroll>
 	

@@ -37,9 +37,6 @@ export class ReposPage {
 	) {
 		this.user = navParams.get('user');
 		this.repos = [];
-		this.loading = this.loadingCtrl.create({
-			content: 'Aguarde...'
-		});
 	}
 
 	public reposError() {
@@ -59,8 +56,10 @@ export class ReposPage {
 		.present();
 	}
 	
-	
-	public ionViewDidLoad() {
+	public getRepos() {
+		this.loading = this.loadingCtrl.create({
+			content: 'Aguarde...'
+		});
 		this.loading.present();
 		
 		this.usersService.getPopularRepos(this.user.login, this.params)
@@ -70,10 +69,14 @@ export class ReposPage {
 			() => this.loading.dismiss()
 		);
 	}
+	
+	public ionViewDidLoad() {
+		this.getRepos();
+	}
 
 	public doInfinite(infiniteScroll) {
 		if (!this.pageLoading && this.enable) {
-			console.log('load more')
+			
 			this.pageLoading = true;
 			this.currentPage++;
 			this.params.page = this.currentPage;
@@ -81,7 +84,6 @@ export class ReposPage {
 			this.usersService.getPopularRepos(this.user.login, this.params)
 				.subscribe(
 					(repos) => {
-						console.log(repos);
 						if (repos.length == 0) {
 							infiniteScroll.enable(false);
 							this.enable = false;
@@ -96,6 +98,18 @@ export class ReposPage {
 					() => this.pageLoading = false
 			)
 		}
+	}
+
+	public changeDirection() {
+		let dir = '';
+		if (this.params.direction == 'asc')
+			dir = 'desc'
+		else
+			dir = 'asc'
+		
+		this.resetFilter(dir);
+
+		this.getRepos();
 	}
 
 	public resetFilter (_dir: string) {

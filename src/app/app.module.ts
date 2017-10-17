@@ -23,7 +23,8 @@ import 'rxjs/add/operator/map';
 import "rxjs/add/operator/switchMap";
 
 // rxjs extensions
-import "rxjs/add/Observable/of";import 'rxjs/add/Observable/throw';
+import "rxjs/add/Observable/of";
+import 'rxjs/add/Observable/throw';
 
 
 @NgModule({
